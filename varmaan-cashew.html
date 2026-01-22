@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Varmaan Cashew Products Pvt. Ltd. | Premium Quality Cashews</title>
+  <meta name="description" content="Premium quality cashew nuts processed and supplied with hygiene and care. Trusted cashew supplier in Indore, India."/>
+  <style>
+    :root {
+      --primary: #8B4513;      /* Rich brown */
+      --secondary: #D2691E;    /* Chocolate */
+      --light: #FFF8E7;        /* Cream */
+      --dark: #3C2F2F;         /* Deep brown */
+      --accent: #FFD700;       /* Gold for highlights */
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: var(--light);
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+    header.scrolled {
+      background: var(--dark);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    main {
+      margin-top: 80px;
+    }
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--dark);
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .hero {
+      background: linear-gradient(rgba(139,69,19,0.7), rgba(139,69,19,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 12rem 2rem 8rem;
+      margin-top: -80px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--dark);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      background: #e6c200;
+      transform: translateY(-3px);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        padding: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .hero {
+        padding: 10rem 1rem 6rem;
+      }
+      h1 {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <nav>
+      <div class="logo">Varmaan Cashew</div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#quality">Quality</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <h1>Premium Quality Cashews</h1>
+      <p>Trusted Processing & Supply | Varmaan Cashew Products Pvt. Ltd.</p>
+      <a href="#contact" class="btn">Enquire Now</a>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p style="text-align:center; max-width:800px; margin:0 auto 2rem;">
+        Varmaan Cashew Products Pvt. Ltd. is a professionally managed cashew processing and supply company based in Indore, India. We are engaged in the processing and supply of high-grade cashew nuts with a strong emphasis on quality, hygiene, and reliability.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Our Vision</h3>
+          <p>To become a trusted name in the cashew industry by delivering consistent quality and value.</p>
+        </div>
+        <div class="card">
+          <h3>Our Mission</h3>
+          <p>To process and supply premium cashews using hygienic practices and customer-centric service.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" style="background:#f9f5ec;">
+      <h2>Our Cashew Range</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://wearenutsmn.com/cdn/shop/files/18024_catalog_1024x.png?v=1735662099" alt="Whole Cashew Nuts">
+          <div class="card-content">
+            <h3>Whole Cashew Nuts</h3>
+            <p>Premium grade, rich taste and texture</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://thumbs.dreamstime.com/b/cashews-15425708.jpg" alt="Broken Cashews">
+          <div class="card-content">
+            <h3>Broken Cashews</h3>
+            <p>Ideal for cooking and food processing</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://noshingwiththenolands.com/wp-content/uploads/2021/04/Herb-Roasted-Cashews-in-a-bowl-horizontal9-Custom.jpg" alt="Roasted Cashews">
+          <div class="card-content">
+            <h3>Roasted Cashews</h3>
+            <p>Freshly roasted for enhanced flavor</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://m.media-amazon.com/images/I/61v5kS1hktL.jpg_BO30,255,255,255_UF750,750_SR1910,1000,0,C_QL100_.jpg" alt="Custom Packing">
+          <div class="card-content">
+            <h3>Customized Packing</h3>
+            <p>As per customer requirements</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quality">
+      <h2>Quality & Certifications</h2>
+      <p style="text-align:center; max-width:800px; margin:0 auto 3rem;">
+        Quality is at the core of everything we do. We follow strict quality control at every stage with hygienic processing and packaging.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <img src="https://tiimg.tistatic.com/fp/1/003/767/cashew-nut-grading-machine-829.jpg" alt="Cashew Grading">
+          <div class="card-content">
+            <h3>Strict Quality Control</h3>
+            <p>At every stage of processing</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://cashewmachinepro.com/wp-content/uploads/2025/06/whole-cashew-kernel-grading-machine-color-sorting-machine-feature.jpg" alt="Hygienic Processing">
+          <div class="card-content">
+            <h3>Hygienic Processing</h3>
+            <p>Modern machinery & careful handling</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://cashewmachinepro.com/wp-content/uploads/2025/06/thanh-dat-vn-broken-cashew-kernel-grading-machine-feature.jpg" alt="Food Safety">
+          <div class="card-content">
+            <h3>Food Safety Compliance</h3>
+            <p>Meets high industry benchmarks</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" style="background:#f9f5ec;">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <img src="https://www.shutterstock.com/shutterstock/photos/2661058753/display_1500/stock-photo-cashew-nuts-close-up-of-raw-cashew-nuts-as-background-giant-cashew-nut-premium-quality-kacang-2661058753.jpg" alt="Premium Whole Cashews">
+        <img src="https://www.toskglobal.com/wp-content/uploads/2021/02/CASHEW-NUTS-TOSK-Global-Ventures-1-1-e1613912378879.jpg" alt="Cashew Nuts">
+        <img src="https://noshingwiththenolands.com/wp-content/uploads/2021/04/Herb-Roasted-Cashews-in-a-bowl-horizontal9-Custom.jpg" alt="Roasted Cashews">
+        <img src="https://thumbs.dreamstime.com/b/close-up-shot-bunch-roasted-cashew-nuts-dark-bowl-set-dark-table-great-food-healthy-concept-image-397616684.jpg" alt="Roasted Cashews Bowl">
+        <img src="https://m.media-amazon.com/images/I/61v5kS1hktL.jpg_BO30,255,255,255_UF750,750_SR1910,1000,0,C_QL100_.jpg" alt="Packaged Cashews">
+        <img src="https://cashewmachinepro.com/wp-content/uploads/2025/06/whole-cashew-kernel-grading-machine-color-sorting-machine-feature.jpg" alt="Processing Machinery">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p style="text-align:center; margin-bottom:2rem;">
+        Have questions or want to place an order? Reach out to us!
+      </p>
+      <form style="max-width:600px; margin:0 auto;">
+        <input type="text" placeholder="Your Name" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
+        <input type="email" placeholder="Your Email" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
+        <input type="tel" placeholder="Phone Number" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
+        <textarea placeholder="Your Message" rows="5" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;"></textarea>
+        <button type="submit" class="btn" style="width:100%; border:none; cursor:pointer;">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Varmaan Cashew Products Pvt. Ltd. | All Rights Reserved</p>
+    <p>Indore, Madhya Pradesh, India | <a href="mailto:info@varmaancashew.com">info@varmaancashew.com</a></p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        // Close mobile menu after click
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
