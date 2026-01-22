@@ -329,12 +329,22 @@
       <p style="text-align:center; margin-bottom:2rem;">
         Have questions or want to place an order? Reach out to us!
       </p>
-      <form style="max-width:600px; margin:0 auto;">
-        <input type="text" placeholder="Your Name" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
-        <input type="email" placeholder="Your Email" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
-        <input type="tel" placeholder="Phone Number" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
-        <textarea placeholder="Your Message" rows="5" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;"></textarea>
-        <button type="submit" class="btn" style="width:100%; border:none; cursor:pointer;">Send Message</button>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="max-width:600px; margin:0 auto;">
+  <!-- Hidden field for Netlify -->
+  <input type="hidden" name="form-name" value="contact" />
+
+  <!-- Honeypot anti-spam (keep hidden) -->
+  <p hidden>
+    <label>
+      Don’t fill this out if you're human: <input name="bot-field" />
+    </label>
+  </p>
+
+  <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
+  <input type="email" name="email" placeholder="Your Email" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
+  <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
+  <textarea name="message" placeholder="Your Message" rows="5" required style="width:100%; padding:1rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;"></textarea>
+  <button type="submit" class="btn" style="width:100%; border:none; cursor:pointer;">Send Message</button>
       </form>
     </section>
   </main>
